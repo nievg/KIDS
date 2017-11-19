@@ -29,6 +29,7 @@ function drawTank(tankX, tankY, scale=1){
 	gunColor    = "#330";
 	
 	
+	
 	trackLeftX = tankX;
 	trackLeftY = tankY;
 	trackRightX = tankX + bodyWidth;
@@ -43,9 +44,8 @@ function drawTank(tankX, tankY, scale=1){
 	gunX = towerX + (towerWidth - gunWidth) / 2;
 	gunY = towerY + towerHeight;
 
-
-
-
+	
+	
 	ctx.fillStyle = trackColor;
 	ctx.fillRect(trackLeftX,  trackLeftY,  trackWidth, trackHeight);
 	ctx.fillRect(trackRightX, trackRightY, trackWidth, trackHeight);
