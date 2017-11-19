@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="myCanvas" width="500" height="600" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script>
+
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+
+function drawTank(tankX, tankY, scale=1){
+	trackWidth  =  20 * scale;
+	trackHeight = 200 * scale;
+	
+	bodyWidth  = 100 * scale;
+	bodyHeight = 150 * scale;
+	
+	towerWidth  =  70 * scale;
+	towerHeight = 100 * scale;
+	
+	gunWidth  =  10 * scale;
+	gunHeight = 120 * scale;
+	
+	trackColor  = "#555";
+	bodyColor   = "#990";
+	towerColor  = "#440";
+	gunColor    = "#330";
+	
+	
+	trackLeftX = tankX;
+	trackLeftY = tankY;
+	trackRightX = tankX + bodyWidth;
+	trackRightY = tankY;
+
+	bodyX = tankX + trackWidth / 2;
+	bodyY = tankY + trackWidth;
+
+	towerX = bodyX + (bodyWidth - towerWidth) / 2;
+	towerY = tankY + trackWidth * 2;
+
+	gunX = towerX + (towerWidth - gunWidth) / 2;
+	gunY = towerY + towerHeight;
+
+
+
+
+	ctx.fillStyle = trackColor;
+	ctx.fillRect(trackLeftX,  trackLeftY,  trackWidth, trackHeight);
+	ctx.fillRect(trackRightX, trackRightY, trackWidth, trackHeight);
+	
+	ctx.fillStyle = bodyColor;
+	ctx.fillRect(bodyX, bodyY, bodyWidth, bodyHeight);
+	
+	ctx.fillStyle = towerColor;
+	ctx.fillRect(towerX, towerY, towerWidth, towerHeight);
+	
+	ctx.fillStyle = gunColor;
+	ctx.fillRect(gunX, gunY, gunWidth, gunHeight);
+}
+
+drawTank(0,0, 0.2);
+drawTank(40,0, 0.5);
+drawTank(120,0, 0.8);
+drawTank(250,0, 1);
+</script>
+
+<p><strong>Note:</strong> The canvas tag is not supported in Internet 
+Explorer 8 and earlier versions.</p>
+
+</body>
+</html>
