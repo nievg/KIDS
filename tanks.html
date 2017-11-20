@@ -10,7 +10,7 @@ Your browser does not support the HTML5 canvas tag.</canvas>
 var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
 
-function drawTank(tankX, tankY, scale=1){
+function drawTank(tankX, tankY, scale = 1){
 	trackWidth  =  20 * scale;
 	trackHeight = 200 * scale;
 	
@@ -39,7 +39,7 @@ function drawTank(tankX, tankY, scale=1){
 	bodyY = tankY + trackWidth;
 
 	towerX = bodyX + (bodyWidth - towerWidth) / 2;
-	towerY = tankY + trackWidth * 2;
+	towerY = bodyY + trackWidth;
 
 	gunX = towerX + (towerWidth - gunWidth) / 2;
 	gunY = towerY + towerHeight;
@@ -65,8 +65,6 @@ drawTank( 40, 0, 0.5);
 drawTank(120, 0, 0.8);
 drawTank(250, 0, 1);
 </script>
-
-<p><strong>Note:</strong>The canvas tag is not supported</p>
 
 </body>
 </html>
