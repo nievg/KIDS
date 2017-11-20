@@ -37,7 +37,7 @@ function drawEnderman(endermanX, endermanY, scale = 1){
  
     eyeLeftX  = headX + headWidth / 4 - eyeWidth / 2;
     eyeLeftY  = headY + headHeight / 3 - eyeHeight / 4;
-    eyeRightX = headX + headWidth * .75 - eyeWidth / 2;
+    eyeRightX = eyeLeftX + headWidth * .5;
     eyeRightY = eyeLeftY;
    
     bodyX = endermanX + handWidth;
@@ -50,7 +50,7 @@ function drawEnderman(endermanX, endermanY, scale = 1){
 
     legLeftX  = bodyX + bodyWidth / 4 - legWidth / 2;
     legLeftY  = bodyY + bodyHeight;
-    legRightX = bodyX + bodyWidth * .75 - legWidth / 2;
+    legRightX = legLeftX + bodyWidth * .5;
     legRightY = legLeftY;
     
     
