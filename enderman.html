@@ -10,7 +10,7 @@ Your browser does not support the HTML5 canvas tag.</canvas>
 var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
 
-function drawEnderman(endermanX, endermanY, scale = 1){
+function drawEnderman(context, endermanX, endermanY, scale = 1){
 	headWidth  = 40 * scale;
     headHeight = 30 * scale;
     
@@ -54,31 +54,31 @@ function drawEnderman(endermanX, endermanY, scale = 1){
     legRightY = legLeftY;
     
     
-    ctx.fillStyle = headColor;
-    ctx.fillRect(headX, headY, headWidth, headHeight);
-
-    ctx.fillStyle = eyeColor;
-    ctx.fillRect(eyeLeftX,  eyeLeftY,  eyeWidth, eyeHeight);
-    ctx.fillRect(eyeRightX, eyeRightY, eyeWidth, eyeHeight);
-
-    ctx.fillStyle = handColor;
-    ctx.fillRect(handLeftX,  handLeftY,  handWidth, handHeight);
-    ctx.fillRect(handRightX, handRightY, handWidth, handHeight);
-     
-    ctx.fillStyle = bodyColor;
-    ctx.fillRect(bodyX, bodyY, bodyWidth, bodyHeight);
+    context.fillStyle = headColor;
+    context.fillRect(headX, headY, headWidth, headHeight);
     
-    ctx.fillStyle = legColor;
-    ctx.fillRect(legLeftX,  legLeftY,  legWidth,  legHeight);
-    ctx.fillRect(legRightX, legRightY, legWidth, legHeight);
+    context.fillStyle = eyeColor;
+    context.fillRect(eyeLeftX,  eyeLeftY,  eyeWidth, eyeHeight);
+    context.fillRect(eyeRightX, eyeRightY, eyeWidth, eyeHeight);
+    
+    context.fillStyle = handColor;
+    context.fillRect(handLeftX,  handLeftY,  handWidth, handHeight);
+    context.fillRect(handRightX, handRightY, handWidth, handHeight);
+    
+    context.fillStyle = bodyColor;
+    context.fillRect(bodyX, bodyY, bodyWidth, bodyHeight);
+    
+    context.fillStyle = legColor;
+    context.fillRect(legLeftX,  legLeftY,  legWidth,  legHeight);
+    context.fillRect(legRightX, legRightY, legWidth, legHeight);
 
 }
 
-drawEnderman(  0,   0, .2);
-drawEnderman( 20,  10, .5);
-drawEnderman( 60,  30, .8);
-drawEnderman(120, 100);
-drawEnderman(200, 200, 1.5);
+drawEnderman(ctx,   0,   0, .2);
+drawEnderman(ctx,  20,  10, .5);
+drawEnderman(ctx,  60,  30, .8);
+drawEnderman(ctx, 120, 100);
+drawEnderman(ctx, 200, 200, 1.5);
 </script>
 
 

@@ -10,7 +10,7 @@ Your browser does not support the HTML5 canvas tag.</canvas>
 var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
 
-function drawTank(tankX, tankY, scale = 1, rotate = 0 ){
+function drawTank(context, tankX, tankY, scale = 1, rotate = 0 ){
 	trackWidth  =  20 * scale;
 	trackHeight = 200 * scale;
 	
@@ -46,26 +46,26 @@ function drawTank(tankX, tankY, scale = 1, rotate = 0 ){
 
 	ctx.rotate(rotate * Math.PI * 180); 
 	
-	ctx.fillStyle = trackColor;
-	ctx.fillRect(trackLeftX,  trackLeftY,  trackWidth, trackHeight);
-	ctx.fillRect(trackRightX, trackRightY, trackWidth, trackHeight);
+	context.fillStyle = trackColor;
+	context.fillRect(trackLeftX,  trackLeftY,  trackWidth, trackHeight);
+	context.fillRect(trackRightX, trackRightY, trackWidth, trackHeight);
 	
-	ctx.fillStyle = bodyColor;
-	ctx.fillRect(bodyX, bodyY, bodyWidth, bodyHeight);
+	context.fillStyle = bodyColor;
+	context.fillRect(bodyX, bodyY, bodyWidth, bodyHeight);
 	
-	ctx.fillStyle = towerColor;
-	ctx.fillRect(towerX, towerY, towerWidth, towerHeight);
+	context.fillStyle = towerColor;
+	context.fillRect(towerX, towerY, towerWidth, towerHeight);
 	
-	ctx.fillStyle = gunColor;
-	ctx.fillRect(gunX, gunY, gunWidth, gunHeight);
+	context.fillStyle = gunColor;
+	context.fillRect(gunX, gunY, gunWidth, gunHeight);
 	
 	
 }
 
-drawTank(  0, 0, 0.2,10);
-drawTank( 40, 40, 0.5,20);
-drawTank(120, 120, 0.8,30);
-drawTank(250, 250, 1,60);
+drawTank(ctx,   0, 0, 0.2,10);
+drawTank(ctx,  40, 40, 0.5,20);
+drawTank(ctx, 120, 120, 0.8,30);
+drawTank(ctx, 250, 250, 1,60);
 
 </script>
 

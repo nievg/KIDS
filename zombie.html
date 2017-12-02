@@ -11,7 +11,7 @@ var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
 
 
-function drawZombie(zombieX, zombieY, scale = 1){
+function drawZombie(context, zombieX, zombieY, scale = 1){
 	headWidth  = 30 * scale;
 	headHeight = 20 * scale;
    
@@ -62,32 +62,32 @@ function drawZombie(zombieX, zombieY, scale = 1){
 	legColor   = "#539";
 	
 
-	ctx.fillStyle = headColor;
-	ctx.fillRect(headX, headY, headWidth, headHeight);
-
-	ctx.fillStyle = eyeColor;
-	ctx.fillRect(eyeLeftX,  eyeLeftY,  eyeWidth, eyeHeight);
-	ctx.fillRect(eyeRightX, eyeRightY, eyeWidth, eyeHeight);
-
-	ctx.fillStyle = mouthColor;
-	ctx.fillRect(mouthX, mouthY, mouthWidth, mouthHeight);
-
-	ctx.fillStyle = handColor;
-	ctx.fillRect(handLeftX,  handLeftY,  handWidth, handHeight);
-	ctx.fillRect(handRightX, handRightY, handWidth, handHeight);
-
-	ctx.fillStyle = bodyColor;
-	ctx.fillRect(bodyX, bodyY, bodyWidth, bodyHeight);
-
-	ctx.fillStyle = legColor;
-	ctx.fillRect(legLeftX,  legLeftY,  legWidth, legHeight);
-	ctx.fillRect(legRightX, legRightY, legWidth, legHeight);
+	context.fillStyle = headColor;
+	context.fillRect(headX, headY, headWidth, headHeight);
+    
+	context.fillStyle = eyeColor;
+	context.fillRect(eyeLeftX,  eyeLeftY,  eyeWidth, eyeHeight);
+	context.fillRect(eyeRightX, eyeRightY, eyeWidth, eyeHeight);
+    
+	context.fillStyle = mouthColor;
+	context.fillRect(mouthX, mouthY, mouthWidth, mouthHeight);
+    
+	context.fillStyle = handColor;
+	context.fillRect(handLeftX,  handLeftY,  handWidth, handHeight);
+	context.fillRect(handRightX, handRightY, handWidth, handHeight);
+    
+	context.fillStyle = bodyColor;
+	context.fillRect(bodyX, bodyY, bodyWidth, bodyHeight);
+    
+	context.fillStyle = legColor;
+	context.fillRect(legLeftX,  legLeftY,  legWidth, legHeight);
+	context.fillRect(legRightX, legRightY, legWidth, legHeight);
 }
 
-drawZombie(  0,  0, .2);
-drawZombie( 30, 10, .5);
-drawZombie( 70, 30);
-drawZombie(150, 60, 1.5);
+drawZombie(ctx,   0,  0, .2);
+drawZombie(ctx,  30, 10, .5);
+drawZombie(ctx,  70, 30);
+drawZombie(ctx, 150, 60, 1.5);
 
 
 for(i = 10; i < 200; i += 10){
