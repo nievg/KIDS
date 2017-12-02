@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="myCanvas" width="500" height="600"
+style="border:1px solid #d3d3d3; background:#cfc">
+</canvas>
+
+
+<canvas id="myCanvas2" width="200" height="300"
+style="border:1px solid #d3d3d3; background:#ffd; ">
+</canvas>
+<br/>
+<canvas id="myCanvas3" width="500" height="300"
+style="border:1px solid #d3d3d3; background:#dff; ">
+</canvas>
+
+<script>
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+var ctx2 = document.getElementById("myCanvas2").getContext("2d");
+var c3 = document.getElementById("myCanvas3");
+var ctx3 = c3.getContext('2d');
+
+
+c3.width = 30;
+c3.height = 50;
+c3.canvas. background = '#333';
+
+class backgroundGrid{
+	constructor(canvas, canvasWidth, canvasHeight, canvasColor,
+		color, pos=[0,0,0,0])
+	{
+		this.canvas = canvas
+		this.canvas.width = canvasWidth;
+		this.canvas.height = canvasHeight;
+		this.canvas.; 
+		this.setCanvasWidth(); 
+		this.setCanvasHeight();
+	}
+	
+
+		this.canvas = canvas
+
+	
+	
+}
+
+class Grid{
+	constructor(
+	fromG = 0, lenght = 200,
+	color = '#333', width = 1 )
+	{
+		this.fromG = fromG;
+		this.lenght = lenght;
+		this.color = color;
+		this.width = width;
+	}
+	
+	
+	drawY(canvas, ot, to, step){
+		canvas.beginPath();
+		for(var i = ot; i <= to; i += step){
+				canvas.moveTo(i, this.fromG);
+				canvas.lineTo(i, this.fromG + this.lenght);
+		}
+		canvas.strokeStyle = this.color;
+		canvas.lineWidth = this.width;
+		canvas.stroke();
+	}
+	
+	drawX(canvas, ot, to, step){
+		canvas.beginPath();	
+		for(var i = ot; i <= to; i += step){
+				canvas.moveTo(this.fromG, i);
+				canvas.lineTo(this.fromG + this.lenght, i);
+		}
+		canvas.strokeStyle = this.color;
+		canvas.lineWidth = this.width;
+		canvas.stroke();
+	}
+	
+
+}
+
+var g1 = new Grid();
+g1.drawX(ctx,0,400,10);
+g1.drawY(ctx,0,400,10);
+g1.drawY(ctx2,0,400,10);
+var majorGrid = new Grid(0,400,'#f00',2);
+majorGrid.drawX(ctx,50,400,50);
+majorGrid.drawY(ctx,50,400,50);
+
+
+var g3 = new Grid();
+g3.drawX(ctx3, 0 , 300, 50);
+
+
+</script>
+
+</body>
+</html>
