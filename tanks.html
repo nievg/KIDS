@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
+<head>
+<script src="Grid.js"></script>
+</head
 <body>
 
 <canvas id="myCanvas" width="500" height="600" style="border:1px solid #d3d3d3;">
 Your browser does not support the HTML5 canvas tag.</canvas>
 
+
 <script>
+
 
 var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
+var g = new Grid();
+g.drawXY(ctx, 25);
 
 function drawTank(context, tankX, tankY, scale = 1, rotate = 0 ){
 	trackWidth  =  20 * scale;
@@ -30,11 +37,19 @@ function drawTank(context, tankX, tankY, scale = 1, rotate = 0 ){
 	
 	
 	
-	trackLeftX = tankX;
-	trackLeftY = tankY;
+	trackLeftX  = tankX;
+	trackLeftY  = tankY;
 	trackRightX = tankX + bodyWidth;
 	trackRightY = tankY;
-
+	tankWidth   = trackWidth + bodyWidth;
+	tankHeight  = trackHeight;
+	
+	context.save();
+	//context.translate(tankX+tankWidth/2, tankY+tankHeight/2);
+	context.translate(-tankX, -tankY);
+	
+	
+	context.rotate(rotate * Math.PI / 180  );
 	bodyX = tankX + trackWidth / 2;
 	bodyY = tankY + trackWidth;
 
@@ -44,7 +59,8 @@ function drawTank(context, tankX, tankY, scale = 1, rotate = 0 ){
 	gunX = towerX + (towerWidth - gunWidth) / 2;
 	gunY = towerY + towerHeight;
 
-	ctx.rotate(rotate * Math.PI * 180); 
+	
+ 
 	
 	context.fillStyle = trackColor;
 	context.fillRect(trackLeftX,  trackLeftY,  trackWidth, trackHeight);
@@ -58,14 +74,16 @@ function drawTank(context, tankX, tankY, scale = 1, rotate = 0 ){
 	
 	context.fillStyle = gunColor;
 	context.fillRect(gunX, gunY, gunWidth, gunHeight);
-	
+	context.restore();
 	
 }
 
-drawTank(ctx,   0, 0, 0.2,10);
-drawTank(ctx,  40, 40, 0.5,20);
-drawTank(ctx, 120, 120, 0.8,30);
-drawTank(ctx, 250, 250, 1,60);
+//drawTank(ctx,   0,   0, 0.2, 90);
+//drawTank(ctx,  40,  40, 0.5, 270);
+//drawTank(ctx, 120, 120, 0.8, 0);
+drawTank(ctx, 125, -50, 0.8, 0);
+drawTank(ctx, 125, -50, 0.8, 90);
+//drawTank(ctx, 250, 250, 1, 90);
 
 </script>
 
