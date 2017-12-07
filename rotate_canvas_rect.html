@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script>
+function deg2rad(deg){
+	return deg * Math.PI/180;
+}
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+var sX = 30,
+	sY = 40,
+    sW = 100,
+    sH = 50,
+    rA = deg2rad(330),
+     O = Math.atan(sY/sX) + rA,
+     r = Math.sqrt(sX * sX + sY * sY),
+     x = r * Math.cos(O),
+     y = r * Math.sin(O),
+    dx = sX - x,
+    dy = sY - y;
+    
+    
+ctx.beginPath();
+ctx.moveTo(0,0);
+ctx.lineTo(sX, sY);
+ctx.strokeStyle="green";
+ctx.stroke();
+ctx.fillRect(sX, sY, sW, sH);
+
+ctx.translate(dx,dy);
+ctx.rotate(rA);
+
+ctx.beginPath();
+ctx.moveTo(0,0);
+ctx.lineTo(sX, sY);
+ctx.strokeStyle="red";
+ctx.stroke();
+ctx.fillStyle = '#f99';
+ctx.fillRect(sX, sY, sW, sH);
+
+</script>
+
+<p><strong>Note:</strong> The canvas tag is not supported in Internet 
+Explorer 8 and earlier versions.</p>
+
+</body>
+</html>
+

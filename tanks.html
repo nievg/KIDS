@@ -46,7 +46,7 @@ function drawTank(context, tankX, tankY, scale = 1, rotate = 0 ){
 	
 	context.save();
 	//context.translate(tankX+tankWidth/2, tankY+tankHeight/2);
-	context.translate(-tankX, -tankY);
+	//context.translate(tankX*2, -tankWidth);
 	
 	
 	context.rotate(rotate * Math.PI / 180  );
@@ -78,9 +78,9 @@ function drawTank(context, tankX, tankY, scale = 1, rotate = 0 ){
 	
 }
 
-//drawTank(ctx,   0,   0, 0.2, 90);
-//drawTank(ctx,  40,  40, 0.5, 270);
-//drawTank(ctx, 120, 120, 0.8, 0);
+drawTank(ctx,   100,   100, 0.2,-90);
+drawTank(ctx,  40,  40, 0.5, 270);
+drawTank(ctx, 120, 120, 0.8, 0);
 drawTank(ctx, 125, -50, 0.8, 0);
 drawTank(ctx, 125, -50, 0.8, 90);
 //drawTank(ctx, 250, 250, 1, 90);
